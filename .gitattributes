@@ -1,0 +1,11 @@
+# For all text files, use LF en repositorio y CRLF en Windows al hacer checkout
+* text=auto
+
+# Fuerza LF para archivos específicos (útil para scripts, configs, etc.)
+*.sh text eol=lf
+*.js text eol=lf
+*.jsx text eol=lf
+*.json text eol=lf
+*.css text eol=lf
+*.html text eol=lf
+*.md text eol=lf
