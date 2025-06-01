@@ -6,10 +6,11 @@ export default defineConfig({
   plugins: [react()],
   build: {
     lib: {
-      entry: "./src/main.jsx", // <== Volvemos a usar main.jsx
+      entry: "./src/mountWidget.jsx", // <- el archivo que monta el widget automáticamente
       name: "WhatsAppWidget",
       fileName: "widget",
-      formats: ["iife"], // widget.iife.js
+      formats: ["iife"],
     },
   },
 });
+
