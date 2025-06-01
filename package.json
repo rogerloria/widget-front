@@ -27,6 +27,7 @@
     "globals": "^16.0.0",
     "postcss": "^8.5.4",
     "tailwindcss": "^3.4.1",
-    "vite": "^6.3.5"
+    "vite": "^6.3.5",
+    "vite-plugin-css-injected-by-js": "^3.5.2"
   }
 }
