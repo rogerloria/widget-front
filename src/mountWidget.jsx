@@ -1,4 +1,4 @@
-import React from "react";
+// src/mountWidget.jsx import React from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App";
 import "./index.css"; // Este import hace que Vite inyecte los estilos como <style>
