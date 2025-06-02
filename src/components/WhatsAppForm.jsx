@@ -22,52 +22,40 @@ export default function WhatsAppForm() {
       setError('Token no definido. Contacta al administrador.');
       return;
     }
-
+  
     if (!name || !userPhone || !message) {
       setError('Todos los campos son obligatorios.');
       return;
     }
-
+  
     if (!validatePhone(userPhone)) {
       setError('El número de teléfono no es válido.');
       return;
     }
-
+  
     setError('');
-    setIsSending(true); // Establece el estado de envío en true
-
-    const text = `Hola, mi nombre es ${name} (${userPhone}). ${message}`;
-    const encoded = encodeURIComponent(text);
-    const pymePhone = '50689858542';
-
-    // Abre WhatsApp
-    window.open(`https://wa.me/${pymePhone}?text=${encoded}`, '_blank');
-
-    // También guarda el lead en el backend
+    setIsSending(true);
+  
     try {
       await axios.post(`http://localhost:8080/api/leads?token=${token}`, {
         name,
         phone: userPhone,
         message,
       });
-      console.log('Lead guardado con éxito');
-      // Limpiar campos
+  
       setName('');
       setUserPhone('');
       setMessage('');
-      // Mostrar mensaje de exito
-      setSuccess('¡Gracias! Te contactaremos pronto.');
-      // Limpiar error
-      setError('');
-      // Limpiar mensaje después de 5 segundos
+      setSuccess('¡Gracias! Tu mensaje fue enviado exitosamente.');
       setTimeout(() => setSuccess(''), 5000);
     } catch (err) {
       console.error('Error al guardar el lead:', err);
-      setError('No se pudo guardar el lead. Intenta más tarde.');
+      setError('No se pudo enviar el mensaje. Intenta más tarde.');
     } finally {
-      setIsSending(false); // Establece el estado de envío en false
+      setIsSending(false);
     }
   };
+  
 
   return (
     <div className="space-y-2">
